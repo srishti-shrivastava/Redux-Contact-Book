@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { addContact } from "../../actions/contactAction";
-// import shortid from "shortid";
-//import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../store"; //   actions/contactAction";
+import shortid from "shortid";
+import { useHistory } from "react-router-dom";
 
 const AddContact = () => {
-//   let history = useHistory();
-//   const dispatch = useDispatch();
+  let history = useHistory();
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,13 +14,13 @@ const AddContact = () => {
   const craeteContact = (e) => {
     e.preventDefault();
     const new_contact = {
-    //   id: shortid.generate(),
+      id: shortid.generate(),
       name: name,
       phone: phone,
       email: email,
     };
-    // dispatch(addContact(new_contact));
-    // history.push("/");
+    dispatch(addContact(new_contact));
+    history.push("/");
   };
 
   return (
